@@ -19,24 +19,24 @@ url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
 dataset = read_csv(url, names=names)
 
-# shape
-print(dataset.shape)
-# head
-print(dataset.head(20))
-# descriptions
-print(dataset.describe())
-# class distribution
-print(dataset.groupby('class').size())
+# # shape
+# print(dataset.shape)
+# # head
+# print(dataset.head(20))
+# # descriptions
+# print(dataset.describe())
+# # class distribution
+# print(dataset.groupby('class').size())
 
-# box and whisker plots
-dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
-pyplot.show()
-# histograms
-dataset.hist()
-pyplot.show()
-# scatter plot matrix
-scatter_matrix(dataset)
-pyplot.show()
+# # box and whisker plots
+# dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
+# pyplot.show()
+# # histograms
+# dataset.hist()
+# pyplot.show()
+# # scatter plot matrix
+# scatter_matrix(dataset)
+# pyplot.show()
 
 # Split-out validation dataset
 array = dataset.values
@@ -59,11 +59,11 @@ for name, model in models:
 	cv_results = cross_val_score(model, X_train, Y_train, cv=kfold, scoring='accuracy')
 	results.append(cv_results)
 	names.append(name)
-	print('%s: %f (%f)' % (name, cv_results.mean(), cv_results.std()))
-# Compare Algorithms
-pyplot.boxplot(results, labels=names)
-pyplot.title('Algorithm Comparison')
-pyplot.show()
+	# print('%s: %f (%f)' % (name, cv_results.mean(), cv_results.std()))
+# # Compare Algorithms
+# pyplot.boxplot(results, labels=names)
+# pyplot.title('Algorithm Comparison')
+# pyplot.show()
 
 # Make predictions on validation dataset
 model = SVC(gamma='auto')
